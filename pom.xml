@@ -10,7 +10,7 @@
 
   <name>camel-no-framework</name>
   <description>A simple camel-no-framework.</description>
-  <!-- FIXME change it to the project's website -->
+  <!-- change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
@@ -44,7 +44,7 @@
   </dependencies>
 
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (maybe moved to parent pom) -->
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -87,11 +87,4 @@
     </pluginManagement>
   </build>
 
-  <reporting>
-    <plugins>
-      <plugin>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </reporting>
 </project>
