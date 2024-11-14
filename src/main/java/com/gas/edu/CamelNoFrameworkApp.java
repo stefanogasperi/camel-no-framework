@@ -1,18 +1,13 @@
 package com.gas.edu;
 
-import com.gas.edu.routes.LongInfoRoute;
-import com.gas.edu.routes.MoveFileRoute;
-import com.gas.edu.routes.ProduceConsumerRoute;
+import com.gas.edu.routes.Produce2SedaConsumerRoute;
+import com.gas.edu.utils.Utility;
 import lombok.extern.java.Log;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.impl.DefaultCamelContext;
 
-/**
- * Hello world!
- *
- */
 @Log
 public class CamelNoFrameworkApp
 {
@@ -23,10 +18,10 @@ public class CamelNoFrameworkApp
         camelContext.addRoutes(new LongInfoRoute("LOG start"));
         camelContext.addRoutes(new MoveFileRoute());
         camelContext.addRoutes(new LongInfoRoute("LOG end")); */
-        camelContext.addRoutes(new ProduceConsumerRoute());
+        camelContext.addRoutes(new Produce2SedaConsumerRoute());
 
         camelContext.start();
-        //keepAliveforSeconds(10, camelContext);
+        Utility.keepAliveForSeconds(2, camelContext);
 
         ProducerTemplate producerTemplate = camelContext.createProducerTemplate();
         producerTemplate.sendBody("direct:produce","Input message");
@@ -35,21 +30,6 @@ public class CamelNoFrameworkApp
         log.info("message:"+message);
 
 
-
     }
-
-    private static void keepAliveforSeconds(int i, CamelContext camelContext) {
-        Long startMillis = System.currentTimeMillis();
-        Long endMillis = startMillis + 10000L;
-        log.info("Running...");
-        while (true) {
-            camelContext.start();
-            if (System.currentTimeMillis()>endMillis) {
-                break;
-            }
-        }
-        log.info("...the end");
-    }
-
 
 }

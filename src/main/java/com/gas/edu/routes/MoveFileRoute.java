@@ -1,14 +1,10 @@
 package com.gas.edu.routes;
 
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.file.GenericFile;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 
 @Log
 public class MoveFileRoute extends RouteBuilder {
