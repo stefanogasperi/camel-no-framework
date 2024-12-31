@@ -1,9 +1,10 @@
 package com.gas.edu.routes;
 
 import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 import org.apache.camel.builder.RouteBuilder;
 
-@Log
+@Log4j
 public class LogInfoRoute extends RouteBuilder  {
     final String message;
 
